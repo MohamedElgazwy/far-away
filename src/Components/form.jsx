@@ -15,21 +15,25 @@ const Form = ({ onAddItems, onDoneItem }) => {
   }
   return (
     <form className="add-form" onSubmit={handleSubmit}>
-      <h3>What do you need for your trip? </h3>
-      <select value={quantity} onChange={(e) => setQuentity(e.target.value)}>
-        {Array.from({ length: 20 }, (_, i) => i + 1).map((num) => (
-          <option value={num} key={num}>
-            {num}
-          </option>
-        ))}
-      </select>
-      <input
-        type="text"
-        placeholder="item..."
-        value={description}
-        onChange={(e) => setdescription(e.target.value)}
-      />
-      <button>Add</button>
+      <div className="form-question">
+        <h3>What do you need for your trip? </h3>
+      </div>
+      <div className="form-icons">
+        <select value={quantity} onChange={(e) => setQuentity(e.target.value)}>
+          {Array.from({ length: 20 }, (_, i) => i + 1).map((num) => (
+            <option value={num} key={num}>
+              {num}
+            </option>
+          ))}
+        </select>
+        <input
+          type="text"
+          placeholder="item..."
+          value={description}
+          onChange={(e) => setdescription(e.target.value)}
+        />
+        <button>Add</button>
+      </div>
     </form>
   );
 };
