@@ -1,17 +1,23 @@
-export default function Item({ item, onDeleteItem, onDoneItem }) {
+const Item = ({ item, onDeleteItem, onDoneItem }) => {
   return (
-    <li>
+    <li className="flex items-center gap-3">
       <input
-        type="checkBox"
-        value={item.packed}
+        type="checkbox"
+        checked={item.packed}
         onChange={() => onDoneItem(item.id)}
+        className="w-5 h-5 accent-[#e5771f] cursor-pointer"
       />
-      <span
-        style={item.packed == true ? { textDecoration: "line-through" } : {}}
-      >
-        {item.description} {item.quantity}
+      <span className={`text-xl ${item.packed ? "line-through" : ""}`}>
+        {item.quantity} {item.description}
       </span>
-      <button onClick={() => onDeleteItem(item.id)}>❌</button>
+      <button
+        onClick={() => onDeleteItem(item.id)}
+        className="text-xl cursor-pointer"
+      >
+        ❌
+      </button>
     </li>
   );
-}
+};
+
+export default Item;
